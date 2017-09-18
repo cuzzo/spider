@@ -43,7 +43,7 @@ jobs:
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
             REPORT_FILE_PATH=/tmp/test-results/coverage/.resultset.json
-            COMMIT_ID=$COMMIT_ID
+            COMMIT_ID=$CIRCLE_SHA1
             
             bundle exec rspec --format progress \
                             --format SimpleCov \
